@@ -1,6 +1,19 @@
 class Post < ApplicationRecord
   #Every post is going to belong to a category and it's author (user)
   default_scope -> { includes(:user).order(created_at: :desc) }
+
+  scope :by_category, -> (branch, category_name) do
+    joins(:category).where(categories: {name: category_name, branch: branch})
+  end
+
+  scope :by_branch, -> (branch) do
+    joins(:category).where(categories: {branch: branch})
+  end
+
+  scope :search, -> (search) do
+    where("title ILIKE lower(?) OR content ILIKE lower(?)", "%#{search}%", "%#{search}%")
+  end
+
   belongs_to :user
   belongs_to :category
 end
