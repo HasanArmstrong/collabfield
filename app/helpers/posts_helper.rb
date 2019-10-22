@@ -15,7 +15,7 @@ module PostsHelper
     end
   end
 
-  def no_posts_partial_path
+  def no_posts_partial_path(posts)
     @posts.empty? ? 'posts/branch/no_posts' : 'shared/empty_partial'
   end
 
