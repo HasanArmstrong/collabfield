@@ -41,7 +41,7 @@ gem 'headless'
 gem 'poltergeist'
 gem 'database_cleaner'
 gem 'faker'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails'
 gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
